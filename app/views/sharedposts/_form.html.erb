@@ -1,0 +1,32 @@
+<%= form_with(model: sharedpost, local: true) do |form| %>
+  <% if sharedpost.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sharedpost.errors.count, "error") %> prohibited this sharedpost from being saved:</h2>
+
+      <ul>
+      <% sharedpost.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :posts_id %>
+    <%= form.text_field :posts_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_of_sharing %>
+    <%= form.datetime_select :date_of_sharing %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

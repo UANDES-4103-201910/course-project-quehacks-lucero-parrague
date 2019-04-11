@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  posts: one
+  date_of_sharing: 2019-04-08 17:33:28
+
+two:
+  user: two
+  posts: two
+  date_of_sharing: 2019-04-08 17:33:28

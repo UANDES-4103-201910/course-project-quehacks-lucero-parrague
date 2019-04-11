@@ -1,0 +1,69 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @post.description %>
+</p>
+
+<p>
+  <strong>Public date:</strong>
+  <%= @post.public_date %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @post.city %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @post.country %>
+</p>
+
+<p>
+  <strong>Gps:</strong>
+  <%= @post.gps %>
+</p>
+
+<p>
+  <strong>Pictures:</strong>
+  <%= @post.pictures %>
+</p>
+
+<p>
+  <strong>Files:</strong>
+  <%= @post.files %>
+</p>
+
+<p>
+  <strong>Open or closed:</strong>
+  <%= @post.open_or_closed %>
+</p>
+
+<p>
+  <strong>Solved:</strong>
+  <%= @post.solved %>
+</p>
+
+<p>
+  <strong>Visible:</strong>
+  <%= @post.visible %>
+</p>
+
+<p>
+  <strong>Dumpster:</strong>
+  <%= @post.dumpster %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
