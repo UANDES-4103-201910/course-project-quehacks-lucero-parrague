@@ -1,21 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="homeStyle.css">
   <title>Welcome to QueHacks</title>
-  <style>
-    body {
-      background-image: url("hack.jpg");
-      background-color: #cccccc;
-    }
-  </style>
-
 </head>
 
 <body>
   <h1>Welcome to QueHacks</h1>
 
-  <%= link_to 'Users', users_path %>
-  <%= link_to 'Posts', posts_path %>
+  <div>
+    <%= link_to 'Users', users_path %>
+    <%= link_to 'Posts', posts_path %>
+  </div>
+
+  <% @posts.each do |post| %>
+  <div>
+    <div>
+      <div>
+        <h3><%= posts.title %></h3>
+      </div>
+      <div>
+
+        <a href="<%= post_url(post) %>">
+          <% if post.fileName != nil %>
+            <%=image_tag post.image.url(:thumb) %>
+          <% else %>
+            <%=image_tag "hack.jpg", :alt => "default", :size=> "220x150"%>
+          <% end %>
+        </a>
+        <p> Description: <%= post.description %></p>
+        <p> User: <%= post.user_id %></p>
+        <p> Published: <%= post.public_date %></p>
+
+
+      </div>
+    </div>
+  </div>
+  <% end %>
+
+
 </body>
 
 </html>

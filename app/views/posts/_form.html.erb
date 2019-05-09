@@ -21,10 +21,6 @@
     <%= form.text_field :description %>
   </div>
 
-  <div class="field">
-    <%= form.label :public_date %>
-    <%= form.datetime_select :public_date %>
-  </div>
 
   <div class="field">
     <%= form.label :city %>
@@ -41,40 +37,17 @@
     <%= form.text_field :gps %>
   </div>
 
-  <!--<div class="field">
-    <%= form.label :pictures %>
-    <%= form.text_field :pictures %>
+  <div class="field">
+    <label>Image</label>
+    <input type="file" name="fileName">
   </div>
 
-  <div class="field">
-    <%= form.label :files %>
-    <%= form.text_field :files %>
-  </div> -->
 
-  <div class="field">
-    <%= form.label :open_or_closed %>
-    <%= form.check_box :open_or_closed %>
-  </div>
-
-  <div class="field">
-    <%= form.label :solved %>
-    <%= form.check_box :solved %>
-  </div>
-
-  <div class="field">
-    <%= form.label :visible %>
-    <%= form.check_box :visible %>
-  </div>
-
-  <div class="field">
-    <%= form.label :dumpster %>
-    <%= form.check_box :dumpster %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
+  <%= form.hidden_field :user_id, :value => current_user.id %>
+  <%= form.hidden_field :public_date, :value => DateAndTime %>
+  <%= form.hidden_field :visible, :value => TRUE %>
+  <%= form.hidden_field :open_or_closed, :value => TRUE %>
+  <%= form.hidden_field :dumpster, :value => FALSE %>
 
   <div class="actions">
     <%= form.submit %>

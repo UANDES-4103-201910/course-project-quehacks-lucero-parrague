@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :admin_level %>
-    <%= form.number_field :admin_level %>
-  </div>
+  <%= form.hidden_field :admin_level, :value => 0 %>
 
   <div class="field">
     <%= form.label :name %>
@@ -39,7 +36,7 @@
   <!--<div class="field">
     <%= form.label :picture %>
     <%= form.text_field :picture %>
-  </div> -->
+  </div>-->
 
   <div class="field">
     <%= form.label :biography %>

@@ -11,6 +11,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.boolean :solved
       t.boolean :visible
       t.boolean :dumpster
+      t.string :fileName
       t.references :user, foreign_key: true
 
       t.timestamps

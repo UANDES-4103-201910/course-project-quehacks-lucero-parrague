@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  include PostsHelper
 
   # GET /posts
   # GET /posts.json
@@ -69,6 +70,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :description, :public_date, :city, :country, :gps, :pictures, :files, :open_or_closed, :solved, :visible, :dumpster, :user_id)
+      params.require(:post).permit(:title, :description, :public_date, :city, :country, :gps, :pictures, :files, :open_or_closed, :solved, :visible, :dumpster, :fileName, :user_id)
     end
 end

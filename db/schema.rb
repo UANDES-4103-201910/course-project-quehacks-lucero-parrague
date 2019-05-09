@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_04_08_213400) do
     t.boolean "solved"
     t.boolean "visible"
     t.boolean "dumpster"
+    t.string "fileName"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
