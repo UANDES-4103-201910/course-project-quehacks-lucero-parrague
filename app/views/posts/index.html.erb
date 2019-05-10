@@ -5,22 +5,23 @@
   <body>
   <% @posts.each do |post| %>
     <div>
-      <div style="background-color: white">
-        <div>
-          <h3><%= post.title %></h3>
+      <div class = "card border-0 shadow mb-4" style="background-color: white">
+        <div class="card-body">
+          <h3 class="display-4"><%= post.title %></h3>
         </div>
         <div>
 
-          <a href="<%= post_url(post) %>">
+          <ahref="<%= post_url(post) %>">
             <% if post.fileName != nil %>
               <%=image_tag post.image.url(:thumb) %>
             <% else %>
               <%=image_tag "hack.jpg", :alt => "default", :size=> "220x150"%>
             <% end %>
           </a>
-          <p> Description: <%= post.description %></p>
-          <p> User: <%= post.user_id %></p>
-          <p> Published: <%= post.public_date %></p>
+          <p class="lead"> Description: <%= post.description %></p>
+          <p class="lead"> User: <%= post.user_id %></p>
+          <!--p> User: <#% User.where(id: post.user_id) %></p-->
+          <p> Published: <%= post.created_at %></p>
 
 
         </div>
@@ -28,9 +29,4 @@
     </div>
   <% end %>
   </body>
-
-
 <br>
-<% if logged_in? %>
-<%= link_to 'New Post', new_post_path %>
-<% end %>

@@ -1,7 +1,5 @@
 class SessionsController < ApplicationController
-  def new
-
-  end
+  def new; end
 
   def create
     user = User.find_by(email: session_params[:email], password: session_params[:password])
@@ -9,15 +7,14 @@ class SessionsController < ApplicationController
       cookies[:user_id] = user.id
       flash[:notice] = "Login success"
       log_in user
-      redirect_to "/users/" +String(user.id)
+      redirect_to user
     else
       flash.now[:danger] = "Invalid email/password combination"
-      redirect_to root_path
+      redirect_to login_path
     end
   end
 
   def destroy
-    #complete this method
     log_out
     redirect_to root_path
   end

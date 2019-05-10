@@ -6,12 +6,12 @@ class User < ApplicationRecord
   has_many :comments
 
 
-  validates :name , presence: true , format: {with: /\A[a-z]+\z/}
-  validates :last_name , presence: true , format: {with: /\A[a-z]+\z/}
+  validates :name , presence: true , format: {with: /\A[A-Za-z]+\z/}
+  validates :last_name , presence: true , format: {with: /\A[A-Za-z]+\z/}
   validates :password , presence: true ,length: {in: 9..12}, format: {with: /\A[a-zA-Z0-9_\-]+\z/}
   validates :email, presence: true, format: {with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "only allows valid email format"}, uniqueness: true
-  validates :city, presence: true , format: {with: /\A[a-z]+\z/}
-  validates :country, presence: true , format: {with: /\A[a-z]+\z/}
+  validates :city, presence: true , format: {with: /\A[A-Za-z]+\z/}
+  validates :country, presence: true , format: {with: /\A[A-Za-z]+\z/}
 
   #function to get user's most popular post
   def Popular
