@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
       cookies[:user_id] = user.id
       flash[:notice] = "Login success"
       log_in user
-      redirect_to user
+      redirect_to root_path
     else
       flash.now[:danger] = "Invalid email/password combination"
       redirect_to login_path

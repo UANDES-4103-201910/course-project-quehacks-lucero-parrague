@@ -20,12 +20,13 @@
       }
       h1 {
         text-align: center;
-        color: black;
+        color: rgb(0,0,0);
       }
 
     </style>
 
-    <h1><a href="/">Welcome To QueHacks</a></h1>
+    <%= render 'layouts/header' %>
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -35,8 +36,8 @@
   <html>
   <body>
   <p id="notice" class="center"><%= notice %></p>
-  <%= render 'layouts/header' %>
-  <%#= render 'layouts/sidenav' %>
+
+  <%= render 'layouts/sidenav' %>
   <div class="container">
     <%= yield %>
     <%#= render 'layouts/footer' %>

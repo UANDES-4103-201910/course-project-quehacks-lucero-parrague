@@ -1,25 +1,20 @@
 <body class="bg">
-  <p id="notice" class="center"><%= notice %></p>
-  <div class="navbar navbar-default navbar-static-top navbar-inverse">
-    <div class="container-fluid">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+<header class="navbar navbar-fixed-top">
+  <div class="container">
+    <h1><div class="title" href="/"><%= link_to "Welcome to QueHacks", root_path%></div></h1>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to "Home",   root_path %></li>
         <% if logged_in? %>
           <li><%= link_to "Log out", logout_path, method: :delete %></li>
           <li><%= link_to(current_user.name, user_path(current_user))%>
         <% else %>
           <li><%= link_to "Log in", '/login' %></li>
-          <li><%= link_to "Register", new_user_path %></li>
+          <li><%= link_to "Register", '/register' %></li>
         <% end %>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-  </div>
 
+      </ul>
+    </nav>
+  </div>
+</header>
 </body>
-</html>
