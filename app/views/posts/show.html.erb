@@ -1,75 +1,53 @@
-<div style="background-color: white">
-<p id="notice"><%= notice %></p>
+<div class = "card border-0 shadow mb-4" style="background-color: white">
+  <p id="notice"><%= notice %></p>
+  <div class="row">
+    <div class="column1">
+        <div class="card-body">
+          <h3 class="display-4"><%=  @post.title %></h3>
+        </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
+        <% if @post.fileName != nil %>
+          <%=image_tag post.image.url(:thumb) %>
+        <% else %>
+          <%=image_tag "hack.jpg", :alt => "default", :size=> "220x150"%>
+        <% end %>
+        <p> Published: <%= @post.created_at %></p>
 
-<p>
-  <strong>Pictures:</strong>
-  <% if @post.fileName != nil %>
-    <%=image_tag post.image.url(:thumb) %>
-  <% else %>
-    <%=image_tag "hack.jpg", :alt => "default", :size=> "220x150"%>
-  <% end %>
-</p>
+      <% if current_user != nil %>
+        <% if current_user.admin_level != 0 %>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.description %>
-</p>
+              <strong>Open or closed:</strong>
+              <%= @post.open_or_closed %>
 
-<p>
-  <strong>Public date:</strong>
-  <%= @post.public_date %>
-</p>
+              <strong>Solved:</strong>
+              <%= @post.solved %>
 
-<p>
-  <strong>City:</strong>
-  <%= @post.city %>
-</p>
+              <strong>Visible:</strong>
+              <%= @post.visible %>
 
-<p>
-  <strong>Country:</strong>
-  <%= @post.country %>
-</p>
+              <strong>Dumpster:</strong>
+              <%= @post.dumpster %>
+        <% end %>
+      <% end %>
 
-<p>
-  <strong>Gps:</strong>
-  <%= @post.gps %>
-</p>
-
-
-<% if current_user != nil %>
-  <% if current_user.admin_level != 0 %>
-      <p>
-        <strong>Open or closed:</strong>
-        <%= @post.open_or_closed %>
-      </p>
-
-      <p>
-        <strong>Solved:</strong>
-        <%= @post.solved %>
-      </p>
-
-      <p>
-        <strong>Visible:</strong>
-        <%= @post.visible %>
-      </p>
-
-      <p>
-        <strong>Dumpster:</strong>
-        <%= @post.dumpster %>
-      </p>
-  <% end %>
-<% end %>
-
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user.email %>
-</p>
+    </div>
+    <div class="column2">
+      <strong>User:</strong>
+      <%= @post.user.email %>
+      <p></p>
+      <strong>City:</strong>
+      <%= @post.city %>
+      <p></p>
+      <strong>Country:</strong>
+      <%= @post.country %>
+      <p></p>
+      <strong>Gps:</strong>
+      <%= @post.gps %>
+      <p></p>
+      <strong>Description:</strong>
+      <%= @post.description %>
+    </div>
+  </div>
 </div>
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+
+<%= link_to 'Edit', edit_post_path(@post) %>

@@ -10,7 +10,7 @@
           <li><%= link_to(current_user.name, user_path(current_user))%>
         <% else %>
           <li><%= link_to "Log in", '/login' %></li>
-          <li><%= link_to "Register", '/register' %></li>
+          <li><%= link_to "Register", new_user_path %></li>
         <% end %>
 
       </ul>

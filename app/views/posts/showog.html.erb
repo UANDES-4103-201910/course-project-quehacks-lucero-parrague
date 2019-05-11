@@ -1,0 +1,75 @@
+<div style="background-color: white">
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Pictures:</strong>
+  <% if @post.fileName != nil %>
+    <%=image_tag post.image.url(:thumb) %>
+  <% else %>
+    <%=image_tag "hack.jpg", :alt => "default", :size=> "220x150"%>
+  <% end %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @post.description %>
+</p>
+
+<p>
+  <strong>Public date:</strong>
+  <%= @post.public_date %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @post.city %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @post.country %>
+</p>
+
+<p>
+  <strong>Gps:</strong>
+  <%= @post.gps %>
+</p>
+
+
+<% if current_user != nil %>
+  <% if current_user.admin_level != 0 %>
+      <p>
+        <strong>Open or closed:</strong>
+        <%= @post.open_or_closed %>
+      </p>
+
+      <p>
+        <strong>Solved:</strong>
+        <%= @post.solved %>
+      </p>
+
+      <p>
+        <strong>Visible:</strong>
+        <%= @post.visible %>
+      </p>
+
+      <p>
+        <strong>Dumpster:</strong>
+        <%= @post.dumpster %>
+      </p>
+  <% end %>
+<% end %>
+
+
+<p>
+  <strong>User:</strong>
+  <%= @post.user.email %>
+</p>
+</div>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

@@ -12,7 +12,7 @@
 
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
   <% if !logged_in? %>
-    <%= link_to "Register", '/register' %>
+    <%= link_to "Register", new_user_path %>
     <%= link_to "Log in", '/login' %>
 
   <%else %>
@@ -24,7 +24,7 @@
       <%= link_to 'All Categories'  , categories_path%>
     <% end %>
     <hr></hr>
-    <p>Posts</p>
+    <%= link_to 'Profile' , user_path(@current_user) %>
     <%= link_to 'New Post', new_post_path(@current_user) %>
     <%= link_to 'My Posts', @current_user %>
   <%end %>

@@ -22,8 +22,9 @@
               </a>
             </div>
             <div class="column2">
+                <%= image_tag("location_placeholder.jpg", :alt => "location_placeholder", :size => "250x100", :position => "static") %>
                 <p class="lead"> Description: <%= post.description %></p>
-                <p class="lead"> User: <%= post.user_id %></p>
+                <p class="lead"> User: <%= post.user.email %></p>
                 <!--p> User: <#% User.where(id: post.user_id) %></p-->
 
             </div>

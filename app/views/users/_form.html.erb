@@ -1,3 +1,4 @@
+<div class = "card border-0 shadow mb-4" style="background-color: white">
 <%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -50,7 +51,7 @@
 
   <div class="field">
     <%= form.label :gps %>
-    <%= form.text_field :gps %>
+    <%= form.text_field :gps, :value => "placeholder" %>
   </div>
 
   <div class="field">
@@ -67,3 +68,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>
