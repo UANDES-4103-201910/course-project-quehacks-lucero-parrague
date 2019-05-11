@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
 
+
   # GET /comments
   # GET /comments.json
   def index
@@ -15,8 +16,8 @@ class CommentsController < ApplicationController
   # GET /comments/new
   def new
     @comment = Comment.new
+    @post = Post.find(params[:post_id])
   end
-
   # GET /comments/1/edit
   def edit
   end
@@ -69,6 +70,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:public_date, :user_id, :post_id)
+      params.require(:comment).permit(:public_date, :user_id, :post_id, :content)
     end
 end

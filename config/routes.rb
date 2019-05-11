@@ -11,7 +11,6 @@ Rails.application.routes.draw do
   resources :users
 
 
-
   post 'posts/:id/sharedposts/new' => 'sharedposts#new'
   post 'posts/:id/comments/new' => 'comments#new', as: :comment
   post 'posts/:id/votes/new' => 'votes#new', as: :vote

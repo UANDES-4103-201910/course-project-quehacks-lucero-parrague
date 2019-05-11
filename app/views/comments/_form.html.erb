@@ -1,32 +1,21 @@
-<%= form_with(model: comment, local: true) do |form| %>
-  <% if comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% if logged_in? %>
+      <%= form_for(:comment, url: new_post_comment_path(@post)) do |form| %>
 
-      <ul>
-      <% comment.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+        <div class="field">
+          <%= form.label :content %>
+          <%= form.text_field :content %>
+        </div>
+
+        <%= form.hidden_field :user_id, :value => current_user.id %>
+        <%= form.hidden_field :public_date, :value => DateAndTime %>
+        <%= form.hidden_field :post_id, :value => @post %>
+
+        <div class="actions">
+          <%= form.submit %>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :public_date %>
-    <%= form.datetime_select :public_date %>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :post_id %>
-    <%= form.text_field :post_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>
