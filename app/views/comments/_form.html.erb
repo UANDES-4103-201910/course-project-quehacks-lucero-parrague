@@ -10,10 +10,10 @@
 
         <%= form.hidden_field :user_id, :value => current_user.id %>
         <%= form.hidden_field :public_date, :value => DateAndTime %>
-        <%= form.hidden_field :post_id, :value => @post %>
+        <%= form.hidden_field :post_id, :value => @post.id %>
 
         <div class="actions">
-          <%= form.submit %>
+          <%= link_to 'Placeholder for now', @post %>
         </div>
       <% end %>
     <% end %>
