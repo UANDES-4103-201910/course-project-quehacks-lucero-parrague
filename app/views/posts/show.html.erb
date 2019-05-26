@@ -15,7 +15,7 @@
     </div>
     <div class="column2">
       <strong>User:</strong>
-      <%= @post.user.email %>
+      <%= link_to @post.user.email, user_path(@post.user.id) %>
       <p></p>
       <strong>City:</strong>
       <%= @post.city %>
@@ -29,7 +29,7 @@
       <strong>Description:</strong>
       <%= @post.description %>
       <% if current_user != nil %>
-        <% if current_user.admin_level != 0 || current_user.id == @post.user.id %>
+        <% if current_user.admin_level == 1 || current_user.id == @post.user.id %>
           <p></p>
           <%= link_to 'Edit', edit_post_path(@post) %>
         <% end %>
@@ -38,7 +38,7 @@
   </div>
 </div>
 <% if current_user != nil %>
-  <% if current_user.admin_level != 0 %>
+  <% if current_user.admin_level == 1 %>
         <strong>Open:</strong>
         <%= @post.open_or_closed %>
 

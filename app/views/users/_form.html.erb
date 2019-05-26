@@ -12,7 +12,7 @@
     </div>
   <% end %>
 
-  <%= form.hidden_field :admin_level, :value => 0 %>
+
 
   <div class="field">
     <%= form.label :name %>
@@ -63,6 +63,8 @@
     <%= form.label :country %>
     <%= form.text_field :country %>
   </div>
+
+    <%= form.hidden_field :admin_level, :value => 0 %>
 
   <div class="actions">
     <%= form.submit %>

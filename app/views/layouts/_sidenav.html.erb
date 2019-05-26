@@ -11,21 +11,23 @@
 <div id="mySidenav" class="sidenav">
 
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <% if !logged_in? %>
+  <% if !user_signed_in? %>
+
     <%= link_to "Register", new_user_path %>
-    <%= link_to "Log in", '/login' %>
+    <%= link_to "Log in", new_user_session_path %>
 
   <%else %>
-    <% if @current_user.admin_level > 0 %>
+
+    <% if current_user.admin_level == 1 %>
       <hr></hr>
       <p>Admin options</p>
       <%= link_to 'All Users' , users_path%>
       <%= link_to 'All Posts' , posts_path%>
     <% end %>
     <hr></hr>
-    <%= link_to 'Profile' , user_path(@current_user) %>
-    <%= link_to 'New Post', new_post_path(@current_user) %>
-    <%= link_to 'My Posts', @current_user %>
+    <%= link_to 'Profile' , user_path(current_user.id) %>
+    <%= link_to 'New Post', new_post_path(current_user.id) %>
+    <%= link_to 'My Posts', user_path(current_user.id) %>
   <%end %>
   <%= link_to 'All Posts' , posts_path %>
 </div>

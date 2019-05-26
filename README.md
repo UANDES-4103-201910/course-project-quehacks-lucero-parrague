@@ -2,6 +2,44 @@
 * Vicente Lucero
 * Ignacio Parrague
 
+# Implemented
+System Access:
+
+- Log in with email
+
+- Log out
+
+Registration:
+
+- User registration
+
+- Change password
+
+User Administration:
+
+- New user
+
+- Delete user
+
+User Profile:
+
+- View user profile
+
+- Edit user profile
+
+- View posts
+
+Post:
+
+- View post
+
+- Delete post
+
+- Edit post
+
+- View publisher profile
+
+
 
 # README
 

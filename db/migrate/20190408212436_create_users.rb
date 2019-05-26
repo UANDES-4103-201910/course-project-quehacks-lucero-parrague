@@ -4,12 +4,12 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.integer :admin_level #this function is only avalible by console, also an admin must be created in console
       t.string :name
       t.string :last_name
-      t.string :email
       t.string :password
       t.string :biography
       t.string :gps
       t.string :city
       t.string :country
+      t.string :imageName
 
       t.timestamps
     end

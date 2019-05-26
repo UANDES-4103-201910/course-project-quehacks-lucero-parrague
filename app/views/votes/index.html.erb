@@ -19,8 +19,10 @@
         <td><%= vote.post %></td>
         <td><%= vote.positive %></td>
         <td><%= link_to 'Show', vote %></td>
+        <%= if current_user.id == vote.user or current_user.admin_level != 0%>
         <td><%= link_to 'Edit', edit_vote_path(vote) %></td>
         <td><%= link_to 'Destroy', vote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

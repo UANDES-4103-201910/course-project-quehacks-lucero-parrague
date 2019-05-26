@@ -6,9 +6,18 @@
         <h3>
           <%= @user.name %>
         </h3>
-        <% if logged_in? %>
-          <% if @current_user.id == @user.id %>
-            <%= link_to 'Edit your account', edit_user_path(@user) %>
+        <% if @user.imageName != nil %>
+          <%=image_tag user.image.url(:thumb) %>
+        <% else %>
+          <%=image_tag "hack.jpg", :alt => "default", :size=> "220x150"%>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <% if current_user.id == @user.id %>
+            <%= link_to 'Edit your account', edit_user_registration_path(@user) %>
+          <% end %>
+          <% if current_user.admin_level == 1 %>
+            <%= link_to 'Edit this account', edit_user_registration_path(@user) %>
           <% end %>
         <% end %>
       </section>
@@ -22,6 +31,23 @@
     <% if @user.biography!=nil %>
       <%= @user.biography %>
     <% end %>
+    </aside>
+  </div>
+  <hr></hr>
+  <div class="row">
+    <aside class="col-md-8">
+      <a>Country:</a>
+    <% if @user.country != nil %>
+      <%= @user.country %>
+    <% end %>
+    </aside>
+  </div>
+  <div class="row">
+    <aside class="col-md-8">
+      <a>City:</a>
+      <% if @user.city != nil %>
+        <%= @user.city %>
+      <% end %>
     </aside>
   </div>
   <hr></hr>

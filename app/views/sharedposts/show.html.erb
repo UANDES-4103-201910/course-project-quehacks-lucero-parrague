@@ -14,6 +14,7 @@
   <strong>Date of sharing:</strong>
   <%= @sharedpost.date_of_sharing %>
 </p>
-
-<%= link_to 'Edit', edit_sharedpost_path(@sharedpost) %> |
-<%= link_to 'Back', sharedposts_path %>
+<%= if current_user.id == sharedpost.user or current_user.admin != 0%>
+  <%= link_to 'Edit', edit_sharedpost_path(@sharedpost) %> |
+  <%= link_to 'Back', sharedposts_path %>
+<% end %>
