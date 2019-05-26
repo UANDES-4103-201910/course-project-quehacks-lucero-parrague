@@ -19,7 +19,21 @@ User Administration:
 
 - New user
 
+- View user details (User role)
+
+- Edit user
+
 - Delete user
+
+System Administration:
+
+- New administrator
+
+- View administrator details
+
+- Edit administrator
+
+- Delete administrator
 
 User Profile:
 
@@ -39,6 +53,11 @@ Post:
 
 - View publisher profile
 
+Search: 
+
+- User search (by email , city or country)
+
+- Post search (by title)
 
 
 # README

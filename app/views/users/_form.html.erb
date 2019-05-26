@@ -13,61 +13,64 @@
   <% end %>
 
 
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+      </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+      <div class="field">
+        <%= form.label :last_name %>
+        <%= form.text_field :last_name %>
+      </div>
 
-  <div class="field">
-    <%= form.label :last_name %>
-    <%= form.text_field :last_name %>
-  </div>
+      <div class="field">
+        <%= form.label :email %>
+        <%= form.text_field :email %>
+      </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
+      <div class="field">
+        <%= form.label :password %>
+        <%= form.text_field :password %>
+      </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.text_field :password %>
-  </div>
+      <div class="field">
+        <%= form.label :confirm_password %>
+        <%= form.text_field :password%>
+      </div>
 
-  <div class="field">
-    <%= form.label :confirm_password %>
-    <%= form.text_field :password%>
-  </div>
+      <div>
+      <%= form.label :picture %>
+      <%= form.text_field :picture %>
+      </div>
 
-  <!--<div class="field">
-    <%= form.label :picture %>
-    <%= form.text_field :picture %>
-  </div>-->
+      <div class="field">
+        <%= form.label :biography %>
+        <%= form.text_field :biography %>
+      </div>
 
-  <div class="field">
-    <%= form.label :biography %>
-    <%= form.text_field :biography %>
-  </div>
+      <div class="field">
+        <%= form.label :gps %>
+        <%= form.text_field :gps, :value => "placeholder" %>
+      </div>
 
-  <div class="field">
-    <%= form.label :gps %>
-    <%= form.text_field :gps, :value => "placeholder" %>
-  </div>
+      <div class="field">
+        <%= form.label :city %>
+        <%= form.text_field :city %>
+      </div>
 
-  <div class="field">
-    <%= form.label :city %>
-    <%= form.text_field :city %>
-  </div>
+      <div class="field">
+        <%= form.label :country %>
+        <%= form.text_field :country %>
+      </div>
 
-  <div class="field">
-    <%= form.label :country %>
-    <%= form.text_field :country %>
-  </div>
+      <div class="field">
+        <%= form.label :admin_level %>
+        <%= form.text_field :admin_level %>
+      </div>
 
-    <%= form.hidden_field :admin_level, :value => 0 %>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
 </div>

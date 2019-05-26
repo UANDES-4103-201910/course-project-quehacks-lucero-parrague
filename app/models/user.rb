@@ -25,5 +25,9 @@ class User < ApplicationRecord
     users[0].posts
   end
 
+  def self.search(search)
+    User.where("email LIKE :query OR country LIKE :query OR city LIKE :query", query: "%#{search}%")
+  end
+
   #get posts where the user commented
 end
