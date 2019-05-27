@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_25_202047) do
+ActiveRecord::Schema.define(version: 2019_05_27_165639) do
 
   create_table "comments", force: :cascade do |t|
     t.datetime "public_date"
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 2019_05_25_202047) do
     t.string "city"
     t.string "country"
     t.string "imageName"
+    t.string "provider"
+    t.string "uid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "email", default: "", null: false

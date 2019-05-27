@@ -28,7 +28,7 @@ class SharedpostsController < ApplicationController
 
     respond_to do |format|
       if @sharedpost.save
-        format.html { redirect_to @sharedpost, notice: 'Sharedpost was successfully created.' }
+        format.html { redirect_to @sharedpost.post, notice: 'Sharedpost was successfully created.' }
         format.json { render :show, status: :created, location: @sharedpost }
       else
         format.html { render :new }

@@ -61,5 +61,17 @@
       <% end %>
     </aside>
   </div>
+
+  <div class="row">
+    <aside class="col-md-8">
+      <h3> Following Posts: </h3>
+      <% @sharedposts.each do |sharedpost| %>
+        <h3>
+          <%= link_to sharedpost.post.title , post_path(sharedpost.post.id) %>
+        </h3>
+      <% end %>
+    </aside>
+  </div>
+
 </div>
 <%= link_to 'Back', root_path %>

@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @posts = @user.posts
+    @sharedposts = Sharedpost.where(params[:id] == @user.id)
   end
 
   # GET /users/new
@@ -75,6 +76,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:admin_level, :name, :last_name, :email, :password, :picture, :biography, :gps, :city, :country)
+      params.require(:user).permit(:admin_level, :name, :last_name, :email, :password, :picture, :biography, :gps, :city, :country, :imageName)
     end
 end

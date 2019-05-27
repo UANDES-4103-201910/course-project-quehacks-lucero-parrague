@@ -51,6 +51,15 @@
         <strong>Dumpster:</strong>
         <%= @post.dumpster %>
   <% end %>
+  <%= form_with(model: Sharedpost, local: true) do |form| %>
+    <%= form.hidden_field :user_id, :value => current_user.id %>
+    <%= form.hidden_field :post, :value => @post.id %>
+    <%= form.hidden_field :date_of_sharing, :value => DateAndTime %>
+    <div class="actions">
+      <%= form.submit "Follow this Post" %>
+    </div>
+
+  <% end %>
 <% end %>
 <div class = "card border-0 shadow mb-4" style="background-color: white">
   <div class="card-body">

@@ -13,6 +13,11 @@
     <%= f.text_field :last_name, autofocus: true, autocomplete: "last_name" %>
   </div>
 
+    <div class="field">
+      <label>Image</label>
+      <input type="file" name="imageName">
+    </div>
+
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -41,7 +46,7 @@
     <%= f.text_field :country, autofocus: true, autocomplete: "country" %>
   </div>
 
-    <%= form.hidden_field :admin_level, :value => 0 %>
+    <%= f.hidden_field :admin_level, :value => 0 %>
 
 
 
