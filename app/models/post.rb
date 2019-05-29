@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :comments
+  has_one_attached :picture
 
   validates :title , presence: true , length: {maximum: 250}, format: {with: /\A[a-zA-Z0-9_\-]+\z/}
   validates :description , presence: true

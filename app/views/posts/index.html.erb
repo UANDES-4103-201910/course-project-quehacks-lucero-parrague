@@ -17,8 +17,8 @@
           <div class="row">
             <div class="column1">
               <a href="<%= post_url(post) %>">
-                <% if post.fileName != nil %>
-                  <%=image_tag post.image.url(:thumb) %>
+                <% if post.picture.attachment != nil %>
+                  <%=image_tag(post.picture, class:"image-responsive", :size=> "220x150") %>
                 <% else %>
                   <%=image_tag "hack.jpg", :alt => "default", :size=> "220x150"%>
                 <% end %>

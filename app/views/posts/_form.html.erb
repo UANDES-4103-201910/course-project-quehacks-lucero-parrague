@@ -18,6 +18,10 @@
   </div>
 
   <div class="field">
+    <%= form.file_field :picture %>
+  </div>
+
+  <div class="field">
     <%= form.label :description %>
     <%= form.text_field :description %>
   </div>
@@ -38,10 +42,6 @@
     <%= form.text_field :gps, :value => "placeholder" %>
   </div>
 
-  <div class="field">
-    <label>Image</label>
-    <input type="file" name="fileName">
-  </div>
 
 
   <%= form.hidden_field :user_id, :value => current_user.id %>

@@ -9,7 +9,6 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.string :gps
       t.string :city
       t.string :country
-      t.string :imageName
       t.string :provider
       t.string :uid
 

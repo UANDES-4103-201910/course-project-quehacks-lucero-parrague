@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :sharedposts
   has_many :votes
   has_many :comments
+  has_one_attached :avatar
 
 
   validates :name , presence: true , format: {with: /\A[A-Za-z]+\z/}

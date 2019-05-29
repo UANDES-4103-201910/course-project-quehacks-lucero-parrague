@@ -6,10 +6,10 @@
         <h3>
           <%= @user.name %>
         </h3>
-        <% if @user.imageName != nil %>
-          <%=image_tag user.image.url(:thumb) %>
-        <% else %>
+        <% if @user.avatar.attachment.nil? %>
           <%=image_tag "hack.jpg", :alt => "default", :size=> "220x150"%>
+        <% else %>
+          <%=image_tag(@user.avatar, class:"image-responsive", :size=> "220x150") %>
         <% end %>
 
         <% if user_signed_in? %>
