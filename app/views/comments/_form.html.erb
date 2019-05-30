@@ -1,19 +1,19 @@
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <% if user_signed_in? %>
-      <%= form_for(:comment, url: new_post_comment_path(@post)) do |form| %>
+      <%= form_for(:comment, :html => {class: "form-horizontal", role: "form"} ) do |f| %>
 
         <div class="field">
-          <%= form.label :content %>
-          <%= form.text_field :content %>
+          <%= f.label :content %>
+          <%= f.text_field :content %>
         </div>
 
-        <%= form.hidden_field :user_id, :value => current_user.id %>
-        <%= form.hidden_field :public_date, :value => DateAndTime %>
-        <%= form.hidden_field :post_id, :value => @post.id %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :public_date, :value => DateAndTime %>
+        <%= f.hidden_field :post_id %>
 
         <div class="actions">
-          <%= link_to 'Placeholder for now', @post %>
+          <%= f.submit %>
         </div>
       <% end %>
     <% end %>

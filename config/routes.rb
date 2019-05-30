@@ -8,9 +8,10 @@ Rails.application.routes.draw do
                            sign_up: 'Join us' }
   resources :reports
 
-  resources :sharedposts
+
 
   resources :posts do
+    resources :sharedposts
     resources :comments
     resources :votes
   end
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   resources :users
 
 
-  post 'posts/:id/sharedposts/new' => 'sharedposts#new'
+  post 'posts/:id/sharedposts/new' => 'sharedposts#new', as: :sharedpost
   post 'posts/:id/comments/new' => 'comments#new', as: :comment
   post 'posts/:id/votes/new' => 'votes#new', as: :vote
   delete 'users/:id' => 'users#destroy'

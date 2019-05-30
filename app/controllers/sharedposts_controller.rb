@@ -24,11 +24,11 @@ class SharedpostsController < ApplicationController
   # POST /sharedposts
   # POST /sharedposts.json
   def create
-    @sharedpost = Sharedpost.new(sharedpost_params)
+    @sharedpost = Post.find(params[:post_id]).sharedposts.new(sharedpost_params)
 
     respond_to do |format|
       if @sharedpost.save
-        format.html { redirect_to @sharedpost.post, notice: 'Sharedpost was successfully created.' }
+        format.html { redirect_to post_path(@sharedpost.post_id), notice: 'Succesfully following this .' }
         format.json { render :show, status: :created, location: @sharedpost }
       else
         format.html { render :new }

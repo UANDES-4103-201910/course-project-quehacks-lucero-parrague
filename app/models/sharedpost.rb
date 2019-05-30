@@ -1,13 +1,13 @@
 class Sharedpost < ApplicationRecord
   belongs_to :user
-  belongs_to :posts
+  belongs_to :post
 
   #validates is not an owner post
   before_create :AlreadyShared
 
   def AlreadyShared
-    shareds = Sharedpost.where(:users => self.users)
-    shareds = shareds.where(:posts => self.posts).count()
+    shareds = Sharedpost.where(:user => self.user)
+    shareds = shareds.where(:post => self.post).count()
     if shareds > 0
       false
     else

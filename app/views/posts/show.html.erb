@@ -63,9 +63,8 @@
         <strong>Dumpster:</strong>
         <%= @post.dumpster %>
   <% end %>
-  <%= form_with(model: Sharedpost, local: true) do |form| %>
+  <%= form_for [@post, @post.sharedposts.build] do |form| %>
     <%= form.hidden_field :user_id, :value => current_user.id %>
-    <%= form.hidden_field :post, :value => @post.id %>
     <%= form.hidden_field :date_of_sharing, :value => DateAndTime %>
     <div class="actions">
       <%= form.submit "Follow this Post" %>
@@ -77,8 +76,15 @@
   <div class="card-body">
     <p class="lead">Comments</p>
     <% if current_user != nil %>
-      <%= link_to "Add Comment (placeholder)", new_post_comment_path(post_id: @post.id) %>
-
+      <%= form_for [@post, @post.comments.build] do |f| %>
+        <%= f.text_area :content %>
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.hidden_field :public_date, :value => DateAndTime %>
+        <%= f.submit "Submit" %>
+      <% end %>
+    <% end %>
+    <% @comments.each do |comment| %>
+      <% comment.content %>
     <% end %>
   </div>
 </div>
