@@ -71,11 +71,33 @@
     </div>
 
   <% end %>
+  <div clas="row">
+
+    <%= form_for [@post, @post.votes.build] do |form| %>
+      <%= form.hidden_field :user_id, :value => current_user.id %>
+      <%= form.hidden_field :positive, :value => FALSE %>
+      <div class="actions">
+        <%= form.submit "Dislike" %>
+      </div>
+    <% end %>
+
+
+    <%= form_for [@post, @post.votes.build] do |form| %>
+      <%= form.hidden_field :user_id, :value => current_user.id %>
+      <%= form.hidden_field :positive, :value => TRUE %>
+      <div class="actions">
+        <%= form.submit "Like" %>
+      </div>
+    <% end %>
+
+  </div>
+
+
 <% end %>
 <div class = "card border-0 shadow mb-4" style="background-color: white">
   <div class="card-body">
-    <p class="lead">Comments</p>
     <% if current_user != nil %>
+      <p class="lead"> New Comment</p>
       <%= form_for [@post, @post.comments.build] do |f| %>
         <%= f.text_area :content %>
         <%= f.hidden_field :user_id, :value => current_user.id %>
@@ -83,8 +105,10 @@
         <%= f.submit "Submit" %>
       <% end %>
     <% end %>
+    <p class="lead">Comments</p>
     <% @comments.each do |comment| %>
-      <% comment.content %>
+      <%= comment.content %>
+      <%= link_to comment.user.email, user_path(comment.user.id) %>
     <% end %>
   </div>
 </div>

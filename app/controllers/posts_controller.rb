@@ -18,8 +18,9 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments
+    @comments = Comment.where(params[:id] == @post.id)
     @sharedposts = @post.sharedposts
+    @votes = @post.votes
   end
 
   # GET /posts/new

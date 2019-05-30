@@ -51,7 +51,17 @@ Post:
 
 - Edit post
 
+- Upvote post
+
+- Downvote post
+
+- Follow post
+
 - View publisher profile
+
+Comments:
+
+- Comment post
 
 Search: 
 
@@ -59,6 +69,45 @@ Search:
 
 - Post search (by title)
 
+Maps:
+
+- Show map with a marker in a default position
+
+File upload:
+
+- File attachment
+
+- ActiveStorage using local upload
+
+#WORKING FOR YOU
+
+Posts:
+
+- Show comments
+
+- Mark post as inappropriate
+
+- User can vote only one time if the vote dont change the vote (positive to negative for example)
+
+Reports:
+
+- Make reports
+
+- Add comments to report
+
+- Edit comment in report comments thread
+
+Comments: 
+
+- Tag User
+
+- View author profile
+
+Maps:
+
+- Get user position
+
+- Set post location
 
 # README
 
