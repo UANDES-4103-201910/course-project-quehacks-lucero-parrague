@@ -40,7 +40,9 @@
     <strong>Files: </strong>
     <% @post.files.each do |file| %>
       <li>
-        <%= if file.attachment != nil %>
+        <% if file.attachment.nil? %>
+
+        <% else %>
           <%= image_tag file.preview(resize_to_limit: [100, 100]) %>
         <% end %>
       </li>
