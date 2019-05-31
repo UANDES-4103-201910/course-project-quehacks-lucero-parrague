@@ -13,12 +13,13 @@
         <% end %>
 
         <% if user_signed_in? %>
-          <% if current_user.id == @user.id %>
-            <%= link_to 'Edit your account', edit_user_registration_path(@user) %>
+          <% if current_user.id == @user.id or current_user.admin_level == 1%>
+            <%= link_to 'Edit account', edit_user_registration_path(@user) %>
           <% end %>
-          <% if current_user.admin_level == 1 %>
-            <%= link_to 'Edit this account', edit_user_registration_path(@user) %>
+          <% if current_user.admin_level == 2 and @user.admin_level == 1%>
+            <%= link_to 'Edit this admin', edit_user_registration_path(@user) %>
           <% end %>
+
         <% end %>
       </section>
     </aside>

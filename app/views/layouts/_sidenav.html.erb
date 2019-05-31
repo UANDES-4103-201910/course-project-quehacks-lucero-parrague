@@ -17,7 +17,7 @@
 
   <%else %>
 
-    <% if current_user.admin_level == 1 %>
+    <% if current_user.admin_level == 1 or current_user.admin_level == 2 %>
       <hr></hr>
       <p>Admin options</p>
       <%= link_to 'New User/Admin', new_user_path %>
