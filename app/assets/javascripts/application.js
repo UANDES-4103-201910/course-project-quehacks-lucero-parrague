@@ -16,3 +16,10 @@
 //= require turbolinks
 //= require_tree .
 import 'bootstrap';
+
+$(document).ready(function(){
+    $(".hidden").hide();
+        $(".clickme").click(function(){
+            $(".hidden").show();
+        })
+})

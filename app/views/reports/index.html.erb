@@ -15,8 +15,8 @@
   <tbody>
     <% @reports.each do |report| %>
       <tr>
-        <td><%= report.user %></td>
-        <td><%= report.post %></td>
+        <td>reported by: <%= link_to report.user.email, posts_path(report.user.id) %></td>
+        <td>post title: <%= link_to report.post.title, posts_path(report.post.id) %></td>
         <td><%= report.description %></td>
         <td><%= link_to 'Show', report %></td>
         <td><%= link_to 'Edit', edit_report_path(report) %></td>

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
                            password: 'secret', confirmation: 'verification',
                            unlock: 'unblock', registration: 'register',
                            sign_up: 'Join us' }
-  resources :reports
+
 
 
 
@@ -14,6 +14,7 @@ Rails.application.routes.draw do
     resources :sharedposts
     resources :comments
     resources :votes
+    resources :reports
   end
 
   resources :users

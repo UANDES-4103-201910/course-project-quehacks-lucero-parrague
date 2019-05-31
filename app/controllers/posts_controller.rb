@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     @comments = Comment.where(params[:id] == @post.id)
     @sharedposts = @post.sharedposts
     @votes = @post.votes
+    @reports = @post.reports
   end
 
   # GET /posts/new

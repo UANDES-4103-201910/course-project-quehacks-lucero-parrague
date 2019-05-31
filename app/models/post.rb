@@ -3,6 +3,7 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :sharedposts
   has_many :votes
+  has_many :reports
   has_one_attached :picture
   has_many_attached :files
 
