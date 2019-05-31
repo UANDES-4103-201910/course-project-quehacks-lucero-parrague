@@ -24,17 +24,23 @@ class SharedpostsController < ApplicationController
   # POST /sharedposts
   # POST /sharedposts.json
   def create
-    @sharedpost = Post.find(params[:post_id]).sharedposts.new(sharedpost_params)
-
-    respond_to do |format|
-      if @sharedpost.save
-        format.html { redirect_to post_path(@sharedpost.post_id), notice: 'Succesfully following this .' }
-        format.json { render :show, status: :created, location: @sharedpost }
-      else
-        format.html { render :new }
-        format.json { render json: @sharedpost.errors, status: :unprocessable_entity }
+    @sharedpost = Sharedpost.find_by(user_id: sharedpost_params[:user_id], post_id: params[:post_id])
+    if @sharedpost == nil
+      @sharedpost = Post.find(params[:post_id]).sharedposts.new(sharedpost_params)
+      respond_to do |format|
+        if @sharedpost.save
+          format.html { redirect_to post_path(@sharedpost.post_id), notice: 'Succesfully following this .' }
+          format.json { render :show, status: :created, location: @sharedpost }
+        else
+          format.html { render :new }
+          format.json { render json: @sharedpost.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to post_path(@sharedpost.post_id), notice: 'Stopped following this .'
+      @sharedpost.destroy
     end
+
   end
 
   # PATCH/PUT /sharedposts/1
