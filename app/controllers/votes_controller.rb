@@ -23,16 +23,21 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
-    @vote = Post.find(params[:post_id]).votes.new(vote_params)
+    @vote = Vote.find_by(user_id: vote_params[:user_id], post_id: params[:post_id])
+    if @vote == nil
+      @vote = Post.find(params[:post_id]).votes.new(vote_params)
 
-    respond_to do |format|
-      if @vote.save
-        format.html { redirect_to post_path(@vote.post_id), notice: 'Vote was successfully created.' }
-        format.json { render :show, status: :created, location: @vote }
-      else
-        format.html { render :new }
-        format.json { render json: @vote.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @vote.save
+          format.html { redirect_to post_path(@vote.post_id), notice: 'Vote was successfully created.' }
+          format.json { render :show, status: :created, location: @vote }
+        else
+          format.html { render :new }
+          format.json { render json: @vote.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      redirect_to post_path(@vote.post_id), notice: 'Already Voted.'
     end
   end
 
