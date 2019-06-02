@@ -1,9 +1,11 @@
 class ReportsController < ApplicationController
   before_action :set_report, only: [:show, :edit, :update, :destroy]
 
+
   # GET /reports
   # GET /reports.json
   def index
+    @posts = Post.all
     @reports = Report.all
   end
 
@@ -66,6 +68,7 @@ class ReportsController < ApplicationController
     def set_report
       @report = Report.find(params[:id])
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def report_params

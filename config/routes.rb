@@ -8,8 +8,6 @@ Rails.application.routes.draw do
                            sign_up: 'Join us' }
 
 
-
-
   resources :posts do
     resources :sharedposts
     resources :comments
