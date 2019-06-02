@@ -26,23 +26,12 @@
               </a>
             </div>
             <div class="column2">
-              <div id="map"></div>
-              <script>
-                  var map;
-                  function initMap() {
-                      var uluru = {lat: -25.344, lng: 131.036};
-                      map = new google.maps.Map(document.getElementById('map'), {
-                          center: uluru,
-                          zoom: 10
-                      });
-                      var marker = new google.maps.Marker({position: uluru, map: map});
-                  }
-              </script>
-              <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAghDygZ30SY12oAZujZAU0t9bAv0xDZEw&callback=initMap"
-                      async defer></script>
+
 
               <p class="lead"> Description: <%= post.description %></p>
                 <p class="lead"> User: <%= post.user.email %></p>
+                <p class="lead"> City: <%=post.city %> </p>
+                <p class="lead"> Country: <%=post.country  %></p>
                 <!--p> User: <#% User.where(id: post.user_id) %></p-->
 
             </div>
