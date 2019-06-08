@@ -28,6 +28,13 @@
   <hr></hr>
   <div class="row">
     <aside class="col-md-8">
+      <a>Last sign in:</a>
+      <a><%= @user.last_sign_in_at %></a>
+    </aside>
+  </div>
+  <hr></hr>
+  <div class="row">
+    <aside class="col-md-8">
       <a>Biography:</a>
     <% if @user.biography!=nil %>
       <%= @user.biography %>
