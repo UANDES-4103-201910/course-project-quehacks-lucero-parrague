@@ -8,38 +8,87 @@
   <% end %>
   <body>
   <% @posts.each do |post| %>
-    <div>
-      <div class = "card border-0 shadow mb-4" style="background-color: white">
-        <div class="card-body">
-          <h3 class="display-4"><%= link_to post.title, post %></h3>
-        </div>
-        <div>
-          <div class="row">
-            <div class="column1">
-              <a href="<%= post_url(post) %>">
-                <% if post.picture.attachment != nil %>
-                  <%=image_tag(post.picture, class:"image-responsive", :size=> "220x150") %>
-                <% else %>
-                  <%=image_tag "hack.jpg", :alt => "default", :size=> "220x150"%>
-                <% end %>
-                <p> Published: <%= post.created_at %></p>
-              </a>
-            </div>
-            <div class="column2">
+    <% if post.dumpster == false %>
+      <div>
+        <div class = "card border-0 shadow mb-4" style="background-color: white">
+          <div class="card-body">
+            <h3 class="display-4"><%= link_to post.title, post %></h3>
+          </div>
+          <div>
+            <div class="row">
+              <div class="column1">
+                <a href="<%= post_url(post) %>">
+                  <% if post.picture.attachment != nil %>
+                    <%=image_tag(post.picture, class:"image-responsive", :size=> "220x150") %>
+                  <% else %>
+                    <%=image_tag "hack.jpg", :alt => "default", :size=> "220x150"%>
+                  <% end %>
+                  <p> Published: <%= post.created_at %></p>
+                </a>
+              </div>
+              <div class="column2">
 
 
-              <p class="lead"> Description: <%= post.description %></p>
-                <p class="lead"> User: <%= post.user.email %></p>
-                <p class="lead"> City: <%=post.city %> </p>
-                <p class="lead"> Country: <%=post.country  %></p>
-                <!--p> User: <#% User.where(id: post.user_id) %></p-->
+                <p class="lead"> Description: <%= post.description %></p>
+                  <p class="lead"> User: <%= post.user.email %></p>
+                  <p class="lead"> City: <%=post.city %> </p>
+                  <p class="lead"> Country: <%=post.country  %></p>
+                  <!--p> User: <#% User.where(id: post.user_id) %></p-->
 
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    <%end%>
   <% end %>
   </body>
 <br>
 </div>
+
+
+<% if current_user != nil %>
+  <% if current_user.admin_level > 0 %>
+    <div class = "card border-0 shadow mb-4" style="background-color: white">
+    <h1>Dumpster Posts</h1>
+        <body>
+        <% @posts.each do |post| %>
+          <% if post.dumpster == true %>
+            <div>
+              <div class = "card border-0 shadow mb-4" style="background-color: white">
+                <div class="card-body">
+                  <h3 class="display-4"><%= link_to post.title, post %></h3>
+                </div>
+                <div>
+                  <div class="row">
+                    <div class="column1">
+                      <a href="<%= post_url(post) %>">
+                        <% if post.picture.attachment != nil %>
+                          <%=image_tag(post.picture, class:"image-responsive", :size=> "220x150") %>
+                        <% else %>
+                          <%=image_tag "hack.jpg", :alt => "default", :size=> "220x150"%>
+                        <% end %>
+                        <p> Published: <%= post.created_at %></p>
+                      </a>
+                    </div>
+                    <div class="column2">
+
+
+                      <p class="lead"> Description: <%= post.description %></p>
+                        <p class="lead"> User: <%= post.user.email %></p>
+                        <p class="lead"> City: <%=post.city %> </p>
+                        <p class="lead"> Country: <%=post.country  %></p>
+                        <!--p> User: <#% User.where(id: post.user_id) %></p-->
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <%end%>
+        <% end %>
+        </body>
+      <br>
+      </div>
+    <%end%>
+<% end %>

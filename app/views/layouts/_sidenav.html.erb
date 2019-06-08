@@ -22,6 +22,7 @@
       <p>Admin options</p>
       <%= link_to 'New User/Admin', new_user_path %>
       <%= link_to 'Report List', post_reports_url(@posts)%>
+      <%= link_to 'Dumpster Posts' , posts_dumpster_path %>
     <% end %>
     <hr></hr>
     <%= link_to 'Profile' , user_path(current_user.id) %>

@@ -16,8 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :users
-
-
+  get 'posts/dumpster' => 'posts#dumpster'
   post 'posts/:id/sharedposts/new' => 'sharedposts#new', as: :sharedpost
   post 'posts/:id/comments/new' => 'comments#new', as: :comment
   post 'posts/:id/votes/new' => 'votes#new', as: :vote
@@ -26,6 +25,8 @@ Rails.application.routes.draw do
   delete 'posts/:id' => 'posts#destroy'
   patch 'posts/:id' => 'posts#update'
   patch 'votes/:id' => 'votes#update'
+
+
 
   patch 'posts/:id/trash' => "posts#trash"
 
