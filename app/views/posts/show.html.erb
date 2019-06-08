@@ -136,5 +136,13 @@
       <%= comment.content %>
       <p><%= link_to comment.user.email, user_path(comment.user.id) %></p>
     <% end %>
+    <% if current_user!= nil %>
+      <% if current_user.admin_level > 0 %>
+        <p class="lead"> Trash</p>
+        <%= form_for @post, :url => {:action => "trash", params: {id: @post.id, user_id: current_user.id}} do |f| %>
+          <%= f.submit "Submit" %>
+        <% end %>
+      <% end %>
+    <% end %>
   </div>
 </div>

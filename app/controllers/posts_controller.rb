@@ -73,6 +73,20 @@ class PostsController < ApplicationController
     end
   end
 
+  def trash
+    @user = User.find(params[:user_id])
+    if @user.admin_level > 0
+      @post = Post.find(params[:id])
+      if @post.dumpster == true
+        @post.dumpster = false
+      else
+        @post.dumpster = true
+      end
+      @post.save
+      redirect_to @post
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post

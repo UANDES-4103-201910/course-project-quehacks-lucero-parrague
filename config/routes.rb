@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   patch 'posts/:id' => 'posts#update'
   patch 'votes/:id' => 'votes#update'
 
+  patch 'posts/:id/trash' => "posts#trash"
+
 
   root to: 'posts#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
