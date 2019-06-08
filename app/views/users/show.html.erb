@@ -58,6 +58,21 @@
       <% end %>
     </aside>
   </div>
+  <% if @user.admin_level == 1 %>
+    <hr></hr>
+    <div class="row">
+      <aside class="col-md-8">
+        <a>Admin</a>
+      </aside>
+    </div>
+  <% elsif @user.admin_level == 2 %>
+  <hr></hr>
+  <div class="row">
+    <aside class="col-md-8">
+      <a>SUPER Admin</a>
+    </aside>
+  </div>
+  <% end %>
   <hr></hr>
   <div class="row">
     <aside class="col-md-8">
