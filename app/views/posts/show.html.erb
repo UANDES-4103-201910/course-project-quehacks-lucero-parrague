@@ -5,7 +5,7 @@
         <div class="card-body">
           <h3 class="display-4"><%=  @post.title %></h3>
           <% if current_user != nil %>
-            <% if current_user.admin_level == 1 || current_user.id == @post.user.id %>
+            <% if current_user.admin_level > 0 || current_user.id == @post.user.id %>
               <p></p>
               <%= link_to 'Edit', edit_post_path(@post) %>
             <% end %>
