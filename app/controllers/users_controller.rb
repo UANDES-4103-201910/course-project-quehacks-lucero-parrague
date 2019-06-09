@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     else
       @users = User.all.order('created_at DESC')
     end
+    @blacklists = Blacklist.all
   end
 
   # GET /users/1
@@ -65,6 +66,21 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def blacklist
+    @admin = User.find(params[:current_id])
+    if @admin.admin_level > 0
+      @blacklist = Blacklist.where(user_id: [params[:id]])
+      if @blacklist.exists?
+        @blacklist[0].destroy
+      else
+        @blacklist = Blacklist.new(user_id: params[:id])
+        @blacklist.save
+      end
+      @user = User.find(params[:id])
+      redirect_to @user
     end
   end
 

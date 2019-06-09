@@ -29,6 +29,7 @@ Rails.application.routes.draw do
 
 
   patch 'posts/:id/trash' => "posts#trash"
+  patch 'users/:id/blacklist' => "users#blacklist"
 
 
   root to: 'posts#index'
