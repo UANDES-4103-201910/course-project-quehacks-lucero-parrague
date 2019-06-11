@@ -1,27 +1,27 @@
 <p id="notice"><%= notice %></p>
+<div class = "card border-0 shadow mb-4" style="background-color: white">
+  <h1>Reports</h1>
 
-<h1>Reports</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Post</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @reports.each do |report| %>
+  <table>
+    <thead>
       <tr>
-        <td>reported by: <%= link_to report.user.email, posts_path(report.user.id) %></td>
-        <td>post title: <%= link_to report.post.title, posts_path(report.post.id) %></td>
-        <td><%= report.description %></td>
-
+        <th>User</th>
+        <th>Post</th>
+        <th>Description</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @reports.each do |report| %>
+        <tr>
+          <td>reported by: <%= link_to report.user.email, posts_path(report.user.id) %></td>
+          <td>post title: <%= link_to report.post.title, posts_path(report.post.id) %></td>
+          <td><%= report.description %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+</div>

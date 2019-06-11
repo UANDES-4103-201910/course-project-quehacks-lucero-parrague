@@ -36,14 +36,26 @@
   </head>
 
   <html>
+  <% if !user_signed_in? %>
+    <% show_page = true %>
+  <% else %>
+    <% if Blacklist.exists?(user_id: current_user.id) %>
+      <%= "YOUR ACCOUNT HAS BEEN BLACKLISTED" %>
+      <% show_page = false %>
+    <% else %>
+      <% show_page = true %>
+    <% end %>
+  <% end %>
   <body>
-  <p id="notice" class="center"><%= notice %></p>
+  <% if show_page == true %>
+    <p id="notice" class="center"><%= notice %></p>
 
-  <%= render 'layouts/sidenav' %>
-  <div class="container">
-    <%= yield %>
-    <%#= render 'layouts/footer' %>
-    <%#= debug(params) if Rails.env.development? %>
-  </div>
-  </body>
+    <%= render 'layouts/sidenav' %>
+    <div class="container">
+      <%= yield %>
+      <%#= render 'layouts/footer' %>
+      <%#= debug(params) if Rails.env.development? %>
+    </div>
+    </body>
+  <% end %>
 </html>

@@ -9,6 +9,8 @@ class PostsController < ApplicationController
     @users = User.all
     if params[:search]
       @posts = Post.search(params[:search]).order("created_at DESC")
+    elsif params[:search_user]
+      @posts = Post.joins(:user).where('users.email LIKE ?', "%#{params[:search_user]}%").order('created_at DESC')
     else
       @posts = Post.all.order('created_at DESC')
     end

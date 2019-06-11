@@ -7,7 +7,7 @@ System Access:
 
 - Log in with email
 
-- Log in with Google auth (make the request to google but we cant create de user if dont exists)
+- Log in with Google auth (make the request to google but we cant create the user if doesn't exists)
 
 - Log out
 
@@ -93,7 +93,7 @@ Comments:
 
 - Comment post
 
-Search: 
+Search:
 
 - User search (by email , city or country)
 

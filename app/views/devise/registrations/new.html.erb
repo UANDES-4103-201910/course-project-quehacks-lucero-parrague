@@ -58,7 +58,12 @@
     <%= f.check_box :terms %>
   </div>
 
-    <%= f.hidden_field :admin_level, :value => 0 %>
+    <% @all_users = User.last %>
+    <% if @all_users != nil %>
+      <%= f.hidden_field :admin_level, :value => 0 %>
+    <% else %>
+      <%= f.hidden_field :admin_level, :value => 1 %>
+    <% end %>
 
 
 
