@@ -21,7 +21,7 @@ class Post < ApplicationRecord
   end
 
   def self.search(search)
-    where("title LIKE :query OR description LIKE :query OR user.email LIKE :query", query: "%#{search}%")
+    where("title LIKE :query OR description LIKE :query", query: "%#{search}%")
   end
 
 end
