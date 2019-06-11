@@ -40,7 +40,7 @@ class User < ApplicationRecord
   end
 
   def self.search(search)
-    where("email LIKE ?", "%#{search}%")
+    where("email LIKE :query OR city LIKE :query", query: "%#{search}%")
   end
 
   #get posts where the user commented
