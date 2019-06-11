@@ -1,3 +1,12 @@
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' control='reload'>
+  <script>
+    document.addEventListener("DOMContentLoaded", function(){
+        initMap(<%=@post.latitude%>, <%=@post.longitude%>)
+    });
+  </script>
+<% end %>
+
 <div class = "card border-0 shadow mb-4" style="background-color: white">
   <p id="notice"><%= notice %></p>
   <div class="row">
@@ -20,20 +29,9 @@
         <p> Published: <%= @post.created_at %></p>
     </div>
     <div class="column2">
+
       <div id="map"></div>
-      <script>
-          var map;
-          function initMap() {
-              var uluru = {lat: -25.344, lng: 131.036};
-              map = new google.maps.Map(document.getElementById('map'), {
-                  center: uluru,
-                  zoom: 10
-              });
-              var marker = new google.maps.Marker({position: uluru, map: map});
-          }
-      </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAghDygZ30SY12oAZujZAU0t9bAv0xDZEw&callback=initMap"
-              async defer></script>
+
       <strong>User:</strong>
       <%= link_to @post.user.email, user_path(@post.user.id) %>
       <p></p>
@@ -42,9 +40,6 @@
       <p></p>
       <strong>Country:</strong>
       <%= @post.country %>
-      <p></p>
-      <strong>Gps:</strong>
-      <%= @post.gps %>
       <p></p>
       <strong>Description:</strong>
       <%= @post.description %>

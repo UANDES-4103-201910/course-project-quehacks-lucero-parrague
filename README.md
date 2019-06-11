@@ -7,6 +7,8 @@ System Access:
 
 - Log in with email
 
+- Log in with Google auth (make the request to google but we cant create de user if dont exists)
+
 - Log out
 
 Registration:
@@ -19,9 +21,13 @@ User Administration:
 
 - New user
 
-- View user details (User role)
+- View user details
 
 - Edit user
+
+- Last access
+
+- User Role
 
 - Delete user
 
@@ -33,7 +39,21 @@ System Administration:
 
 - Edit administrator
 
+- Change password
+
 - Delete administrator
+
+- View user blacklist
+
+- Search user in blacklist
+
+- Restore user from blacklist
+
+- View dumpster
+
+- Recover dumpster
+
+- Search for post in dumpster
 
 User Profile:
 
@@ -41,11 +61,19 @@ User Profile:
 
 - Edit user profile
 
+- Edit fields: name, bio, location and creation date
+
 - View posts
+
+- View User activity
 
 Post:
 
-- View post
+- Create Post (Dont know why the map to set the location dont display)
+
+- View post (title, description, location and creation date)
+
+- Post Location on map (Dont know why it display on page refresh)
 
 - Delete post
 
@@ -58,6 +86,8 @@ Post:
 - Follow post
 
 - View publisher profile
+
+- Mark Post as inappropiate
 
 Comments:
 
@@ -79,35 +109,23 @@ File upload:
 
 - ActiveStorage using local upload
 
-#WORKING FOR YOU
+Acceptable Use Policy (AUP) and Terms of Services (ToS):
 
-Posts:
+- Provide AUD and ToS documents
 
-- Show comments
+- Report abusive content
 
-- Mark post as inappropriate
+Post Search:
 
-- User can vote only one time if the vote dont change the vote (positive to negative for example)
+- Search by world in title / description
 
-Reports:
+- Search by author
 
-- Make reports
+User Search:
 
-- Add comments to report
+- Search by nickname
 
-- Edit comment in report comments thread
-
-Comments: 
-
-- Tag User
-
-- View author profile
-
-Maps:
-
-- Get user position
-
-- Set post location
+- Search by location
 
 # README
 

@@ -1,3 +1,11 @@
+<% provide :head_tags do %>
+  <meta name='turbolinks-visit-control' content='reload'>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAghDygZ30SY12oAZujZAU0t9bAv0xDZEw&callback=initMap2" async defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", initMap2);
+  </script>
+<% end %>
+
 <div class = "card border-0 shadow mb-4" style="background-color: white">
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
@@ -26,6 +34,20 @@
     <%= form.text_field :description %>
   </div>
 
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude %>
+  </div>
+
+  <div class="field" >
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude %>
+  </div>
+
+  <p>
+    <div id="map2"></div>
+  </p>
+
 
   <div class="field">
     <%= form.label :city %>
@@ -37,10 +59,7 @@
     <%= form.text_field :country %>
   </div>
 
-  <div class="field">
-    <%= form.label :gps %>
-    <%= form.text_field :gps, :value => "placeholder" %>
-  </div>
+
 
 
 
@@ -49,6 +68,7 @@
   <%= form.hidden_field :visible, :value => TRUE %>
   <%= form.hidden_field :open_or_closed, :value => TRUE %>
   <%= form.hidden_field :dumpster, :value => FALSE %>
+
 
   <div class="actions">
     <%= form.submit %>

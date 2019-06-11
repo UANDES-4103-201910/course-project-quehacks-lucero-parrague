@@ -29,8 +29,10 @@
 
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application'%>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAghDygZ30SY12oAZujZAU0t9bAv0xDZEw&callback=initMap' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload'%>
+    <%= yield(:head_tags) %>
   </head>
 
   <html>

@@ -11,7 +11,8 @@ class Post < ApplicationRecord
   validates :description , presence: true
   validates :city ,presence: true, format: {with: /\A[a-zA-Z0-9_\-]+\z/}
   validates :country, presence: true, format: {with: /\A[a-zA-Z0-9_\-]+\z/}
-  validates :gps , presence: true
+  validates :latitude , presence: true
+  validates :longitude, presence: true
   #validates :picture, presence: true
 
   def GetVotes

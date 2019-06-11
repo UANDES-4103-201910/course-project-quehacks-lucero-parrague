@@ -45,6 +45,19 @@
     <%= f.text_field :country, autofocus: true, autocomplete: "country" %>
   </div>
 
+  <div class="field">
+    <%= f.label :i_accept_terms_of_use_and_services %>
+    <div>
+      <a href="https://www.termsofusegenerator.net/live.php?token=kq8Is7d4YkJzHoViC4rFOJokxVhmFEZO">See Terms of Use</a>
+    </div>
+
+    <div>
+      <a href="https://www.termsofservicegenerator.net/live.php?token=QhAySmowE7BXyHI7HAOtZ8Hn3DMgOsXw">See Terms of Services</a>
+    </div>
+
+    <%= f.check_box :terms %>
+  </div>
+
     <%= f.hidden_field :admin_level, :value => 0 %>
 
 
